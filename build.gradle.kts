@@ -17,7 +17,17 @@ buildscript {
 
 allprojects {
     apply(plugin = rootProject.libs.plugins.kover.get().pluginId).also {
-        rootProject.dependencies.add("kover", project(path))
+        koverMerged {
+            filters {
+                annotations {
+                    excludes += listOf(
+                        "androidx.compose.ui.tooling.preview.Preview",
+                        "androidx.compose.runtime.Composable"
+                    )
+                }
+            }
+            enable()
+        }
     }
 
     // todo CMP bug needs to be removed when fixed
