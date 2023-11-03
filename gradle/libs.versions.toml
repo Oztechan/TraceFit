@@ -2,7 +2,7 @@
 
 kotlin = "1.9.10"
 androidGradlePlugin = "8.1.2"
-compose = "1.5.1"
+compose = "1.5.4"
 composeActivity = "1.7.2"
 appcompat = "1.6.1"
 atomicfu = "0.17.3"
