@@ -1,16 +1,19 @@
 plugins {
-    alias(libs.plugins.multiplatform).apply(false)
-    alias(libs.plugins.compose).apply(false)
-    alias(libs.plugins.android.application).apply(false)
+    libs.plugins.apply {
+        alias(kotlinMultiplatform).apply(false)
+        alias(compose).apply(false)
+        alias(androidApplication).apply(false)
+    }
 }
 
+// todo CMP bug needs to be removed when fixed
+// https://youtrack.jetbrains.com/issue/KT-41821/Kotlin-1.4.10-ios-target-java.lang.IllegalStateException-failed-to-resolve-Kotlin-library-org.jetbrains.kotlinx-atomicfu-common
 buildscript {
     dependencies {
-        // Use the same version in the error
-        classpath("org.jetbrains.kotlinx:atomicfu-gradle-plugin:0.17.3")
+        classpath(libs.classpaths.atomicfu)
     }
 }
 
 allprojects {
-    apply(plugin = "kotlinx-atomicfu")
+    apply(plugin = rootProject.libs.plugins.atomicfu.get().pluginId)
 }

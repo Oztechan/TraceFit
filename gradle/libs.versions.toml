@@ -1,20 +1,24 @@
 [versions]
 
 kotlin = "1.9.10"
-agp = "8.1.2"
+androidGradlePlugin = "8.1.2"
 compose = "1.5.1"
-androidx-appcompat = "1.6.1"
-androidx-activityCompose = "1.7.2"
-compose-uitooling = "1.5.1"
+composeActivity = "1.7.2"
+appcompat = "1.6.1"
+atomicfu = "0.17.3"
 
 [libraries]
 
-androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
-androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
-compose-uitooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-uitooling" }
+android-composeActivity = { module = "androidx.activity:activity-compose", version.ref = "composeActivity" }
+android-composeToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+android-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+
+# Classpaths
+classpaths-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu-gradle-plugin", version.ref = "atomicfu" }
 
 [plugins]
 
-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
-android-application = { id = "com.android.application", version.ref = "agp" }
+androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+atomicfu = { id = "kotlinx-atomicfu" }
