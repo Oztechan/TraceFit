@@ -1,7 +1,9 @@
 plugins {
-    alias(libs.plugins.multiplatform)
-    alias(libs.plugins.compose)
-    alias(libs.plugins.android.application)
+    libs.plugins.apply {
+        alias(kotlinMultiplatform)
+        alias(compose)
+        alias(androidApplication)
+    }
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -34,33 +36,26 @@ kotlin {
         }
         val commonMain by getting {
             dependencies {
-                implementation(compose.runtime)
-                implementation(compose.material3)
-                implementation(compose.materialIconsExtended)
-                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-                implementation(compose.components.resources)
+                compose.apply {
+                    implementation(runtime)
+                    implementation(material3)
+                    implementation(materialIconsExtended)
+                    @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+                    implementation(components.resources)
+                }
             }
         }
 
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
 
         val androidMain by getting {
             dependencies {
-                implementation(libs.androidx.appcompat)
-                implementation(libs.androidx.activityCompose)
-                implementation(libs.compose.uitooling)
+                libs.android.apply {
+                    implementation(composeActivity)
+                    implementation(composeToolingPreview)
+                    implementation(appcompat)
+                }
             }
         }
-
-        val iosMain by getting {
-            dependencies {
-            }
-        }
-
     }
 }
 
