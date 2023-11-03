@@ -6,6 +6,7 @@ compose = "1.5.1"
 composeActivity = "1.7.2"
 appcompat = "1.6.1"
 atomicfu = "0.17.3"
+kover = "0.6.1"
 
 [libraries]
 
@@ -22,3 +23,4 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 atomicfu = { id = "kotlinx-atomicfu" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
