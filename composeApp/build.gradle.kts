@@ -14,7 +14,7 @@ kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = ProjectSettings.JAVA_VERSION.toString()
             }
         }
     }
@@ -51,19 +51,26 @@ kotlin {
 }
 
 android {
-    namespace = "com.oztechan.tracefit"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    ProjectSettings.apply {
+        namespace = "com.oztechan.tracefit"
+        compileSdk = COMPILE_SDK_VERSION
 
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    sourceSets["main"].res.srcDirs("src/androidMain/res")
-    sourceSets["main"].resources.srcDirs("src/commonMain/resources")
+        sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+        sourceSets["main"].res.srcDirs("src/androidMain/res")
+        sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
-    defaultConfig {
-        applicationId = "com.oztechan.tracefit"
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
+        defaultConfig {
+            applicationId = PROJECT_ID
+            minSdk = MIN_SDK_VERSION
+            targetSdk = TARGET_SDK_VERSION
+            versionCode = getVersionCode(project)
+            versionName = getVersionName(project)
+        }
+
+        compileOptions {
+            sourceCompatibility = JAVA_VERSION
+            targetCompatibility = JAVA_VERSION
+        }
     }
     buildFeatures {
         compose = true
@@ -81,10 +88,7 @@ android {
             isMinifyEnabled = false
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
+
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
     }
