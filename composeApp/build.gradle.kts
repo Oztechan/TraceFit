@@ -1,18 +1,20 @@
+import org.jetbrains.compose.ExperimentalComposeLibrary
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 plugins {
-    libs.plugins.apply {
-        alias(kotlinMultiplatform)
-        alias(compose)
-        alias(androidApplication)
-    }
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.jetbrainsCompose)
 }
 
-@OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
     targetHierarchy.default()
+
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "17"
+                jvmTarget = "1.8"
             }
         }
     }
@@ -21,39 +23,28 @@ kotlin {
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
-    ).forEach {
-        it.binaries.framework {
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
         }
     }
 
     sourceSets {
-        all {
-            languageSettings {
-                optIn("org.jetbrains.compose.resources.ExperimentalResourceApi")
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.compose.ui)
+                implementation(libs.compose.ui.tooling.preview)
+                implementation(libs.androidx.activity.compose)
             }
         }
         val commonMain by getting {
             dependencies {
-                compose.apply {
-                    implementation(runtime)
-                    implementation(material3)
-                    implementation(materialIconsExtended)
-                    @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-                    implementation(components.resources)
-                }
-            }
-        }
-
-
-        val androidMain by getting {
-            dependencies {
-                libs.android.apply {
-                    implementation(composeActivity)
-                    implementation(composeToolingPreview)
-                    implementation(appcompat)
-                }
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                @OptIn(ExperimentalComposeLibrary::class)
+                implementation(compose.components.resources)
             }
         }
     }
@@ -61,24 +52,41 @@ kotlin {
 
 android {
     namespace = "com.oztechan.tracefit"
-    compileSdk = 34
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
+
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    sourceSets["main"].res.srcDirs("src/androidMain/res")
+    sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        minSdk = 24
-        targetSdk = 34
-
-        applicationId = "com.oztechan.tracefit.androidApp"
+        applicationId = "com.oztechan.tracefit"
+        minSdk = libs.versions.android.minSdk.get().toInt()
+        targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
-        versionName = "1.0.0"
+        versionName = "1.0"
     }
-    sourceSets["main"].apply {
-        manifest.srcFile("src/androidMain/AndroidManifest.xml")
-        res.srcDirs("src/androidMain/resources")
-        resources.srcDirs("src/commonMain/resources")
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+        }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    dependencies {
+        debugImplementation(libs.compose.ui.tooling)
     }
 }
 

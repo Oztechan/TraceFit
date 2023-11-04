@@ -1,9 +1,9 @@
 plugins {
     libs.plugins.apply {
-        alias(kotlinMultiplatform).apply(false)
-        alias(compose).apply(false)
-        alias(androidApplication).apply(false)
-        alias(libs.plugins.kover)
+        alias(jetbrainsCompose) apply false
+        alias(androidApplication) apply false
+        alias(kotlinMultiplatform) apply false
+        alias(kover)
     }
 }
 
