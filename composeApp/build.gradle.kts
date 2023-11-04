@@ -2,9 +2,11 @@ import org.jetbrains.compose.ExperimentalComposeLibrary
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsCompose)
+    libs.plugins.apply {
+        alias(kotlinMultiplatform)
+        alias(androidApplication)
+        alias(jetbrainsCompose)
+    }
 }
 
 kotlin {
@@ -33,9 +35,11 @@ kotlin {
     sourceSets {
         val androidMain by getting {
             dependencies {
-                implementation(libs.compose.ui)
-                implementation(libs.compose.ui.tooling.preview)
-                implementation(libs.androidx.activity.compose)
+                libs.android.apply {
+                    implementation(composeUi)
+                    implementation(composeUiToolingPreview)
+                    implementation(activityCompose)
+                }
             }
         }
         val commonMain by getting {
@@ -76,7 +80,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+        kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
     }
     packaging {
         resources {
@@ -90,7 +94,7 @@ android {
     }
 
     dependencies {
-        debugImplementation(libs.compose.ui.tooling)
+        debugImplementation(libs.android.composeUiTooling)
     }
 }
 
