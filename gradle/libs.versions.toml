@@ -1,38 +1,30 @@
 [versions]
-compose = "1.5.4"
-compose-plugin = "1.5.3"
-compose-compiler = "1.5.3"
-agp = "8.1.2"
-androidx-activityCompose = "1.8.0"
-androidx-core-ktx = "1.12.0"
-androidx-appcompat = "1.6.1"
-androidx-material = "1.10.0"
-androidx-constraintlayout = "2.1.4"
-androidx-espresso-core = "3.5.1"
 kotlin = "1.9.10"
 atomicfu = "0.17.3"
 kover = "0.6.1"
+compose = "1.5.4"
+jetbrainsCompose = "1.5.3"
+composeCompiler = "1.5.3"
+androidGradlePlugin = "8.1.2"
+androidx-activityCompose = "1.8.0"
 
 [libraries]
+# COMMON
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
-compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-espresso-core" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
-androidx-material = { group = "com.google.android.material", name = "material", version.ref = "androidx-material" }
-androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout" }
-androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+common-ComposeCompiler = { module = "androidx.compose.compiler:compiler", version.ref = "composeCompiler" } # Workaround for compose compiler update
 
-# Classpaths
+# ANDROID
+android-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+android-composeUi = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+android-composeUiTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+android-composeUiToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+
+# CLASSPATHS
 classpaths-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu-gradle-plugin", version.ref = "atomicfu" }
 
 [plugins]
-jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
-androidApplication = { id = "com.android.application", version.ref = "agp" }
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "jetbrainsCompose" }
+androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 atomicfu = { id = "kotlinx-atomicfu" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
