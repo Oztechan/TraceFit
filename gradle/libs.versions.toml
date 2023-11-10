@@ -1,6 +1,7 @@
 [versions]
 kotlin = "1.9.10"
 atomicfu = "0.17.3"
+detekt = "1.23.3"
 kover = "0.6.1"
 compose = "1.5.4"
 jetbrainsCompose = "1.5.3"
@@ -12,6 +13,7 @@ androidx-activityCompose = "1.8.0"
 # COMMON
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 common-ComposeCompiler = { module = "androidx.compose.compiler:compiler", version.ref = "composeCompiler" } # Workaround for compose compiler update
+common-detektFormatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 
 # ANDROID
 android-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
@@ -28,3 +30,4 @@ androidApplication = { id = "com.android.application", version.ref = "androidGra
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 atomicfu = { id = "kotlinx-atomicfu" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
