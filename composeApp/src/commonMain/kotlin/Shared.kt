@@ -1,1 +1,1 @@
-val GREETING = "Hello World!"
+const val GREETING = "Hello World!"

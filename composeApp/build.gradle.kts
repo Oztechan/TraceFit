@@ -32,6 +32,7 @@ kotlin {
         }
     }
 
+    @Suppress("UnusedPrivateProperty")
     sourceSets {
         val androidMain by getting {
             dependencies {
@@ -97,4 +98,3 @@ android {
         debugImplementation(libs.android.composeUiTooling)
     }
 }
-
