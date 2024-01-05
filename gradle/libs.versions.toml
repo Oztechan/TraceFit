@@ -1,7 +1,7 @@
 [versions]
 kotlin = "1.9.10"
 atomicfu = "0.17.3"
-detekt = "1.23.3"
+detekt = "1.23.4"
 kover = "0.6.1"
 compose = "1.5.4"
 jetbrainsCompose = "1.5.3"
