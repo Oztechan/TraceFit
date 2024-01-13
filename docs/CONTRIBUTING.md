@@ -12,12 +12,12 @@ Example:
 
 ## Commit Message
 
-Every commit message should match the following format `[/#ISSUE_ID] Commit message`
+Every commit message should match the following format `[Oztechan/TraceFit#ISSUE_ID] Commit message`
 
 Example:
 
 ```
-[/#ISSUE_ID] My cool feature
+[Oztechan/TraceFit#ISSUE_ID] My cool feature
 ```
 
 ## Pull Request
@@ -27,23 +27,23 @@ Example:
 Pull Request title should follow below format:
 
 ```
-[/#ISSUE_ID] ISSUE_TITLE
+[Oztechan/TraceFit#ISSUE_ID] ISSUE_TITLE
 ```
 
 Example:
 
 ```
-[/#ISSUE_ID] Whatever the name of ticket is
+[Oztechan/TraceFit#ISSUE_ID] Whatever the name of ticket is
 ```
 
 ### Description
 
-Description has to have `Resolves /#ISSUE_ID` with relevant issue. It will help automatically close relevant issue once the PR is merged.
+Description has to have `Resolves Oztechan/TraceFit#ISSUE_ID` with relevant issue. It will help automatically close relevant issue once the PR is merged.
 
 Example:
 
 ```
-Resolves /#123
+Resolves Oztechan/TraceFit#123
 
 Some description.
 ```
