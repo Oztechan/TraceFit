@@ -18,7 +18,7 @@ object ProjectSettings {
     const val MIN_SDK_VERSION = 24
     const val TARGET_SDK_VERSION = 34
 
-    val JAVA_VERSION = JavaVersion.VERSION_1_8
+    val JAVA_VERSION = JavaVersion.VERSION_17
 
     @Suppress("TooGenericExceptionCaught", "SwallowedException")
     fun getVersionCode(project: Project) = try {

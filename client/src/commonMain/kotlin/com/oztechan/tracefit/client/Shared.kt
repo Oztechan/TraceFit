@@ -1,3 +1,3 @@
 package com.oztechan.tracefit.client
 
-const val GREETING = "Hello World!"
+internal const val GREETING = "Hello World!"
