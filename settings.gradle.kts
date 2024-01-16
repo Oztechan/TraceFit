@@ -36,7 +36,7 @@ gradleEnterprise {
     }
 }
 
-include(":composeApp")
+include(":client")
 
 rootProject.name = "TraceFit"
 rootProject.updateBuildFileNames()
