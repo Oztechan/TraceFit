@@ -36,7 +36,10 @@ gradleEnterprise {
     }
 }
 
-include(":client")
+include(
+    ":android",
+    ":client"
+)
 
 rootProject.name = "TraceFit"
 rootProject.updateBuildFileNames()

@@ -19,7 +19,7 @@ import org.jetbrains.compose.resources.painterResource
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun App() {
+fun MainView() {
     MaterialTheme {
         var greetingText by remember { mutableStateOf(GREETING) }
         var showImage by remember { mutableStateOf(false) }
