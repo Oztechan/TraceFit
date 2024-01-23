@@ -6,7 +6,7 @@ kover = "0.6.1"
 compose = "1.5.4"
 jetbrainsCompose = "1.5.11"
 composeCompiler = "1.5.5"
-androidGradlePlugin = "8.2.1"
+androidGradlePlugin = "8.2.2"
 androidx-activityCompose = "1.8.2"
 
 [libraries]
