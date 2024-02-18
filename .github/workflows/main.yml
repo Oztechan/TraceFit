@@ -41,7 +41,7 @@ jobs:
 
       - name: Cancel other jobs if this fails
         if: failure()
-        uses: andymckay/cancel-action@0.3
+        uses: andymckay/cancel-action@0.4
 
       - name: Set Job Status
         id: status
@@ -77,7 +77,7 @@ jobs:
 
       - name: Cancel other jobs if this fails
         if: failure()
-        uses: andymckay/cancel-action@0.3
+        uses: andymckay/cancel-action@0.4
 
       - name: Set Job Status
         id: status
