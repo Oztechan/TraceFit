@@ -1,6 +1,5 @@
 [versions]
 kotlin = "1.9.22"
-atomicfu = "0.23.2"
 detekt = "1.23.5"
 kover = "0.6.1"
 compose = "1.6.2"
@@ -21,15 +20,11 @@ android-composeUi = { module = "androidx.compose.ui:ui", version.ref = "compose"
 android-composeUiTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 android-composeUiToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 
-# CLASSPATHS
-classpaths-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu-gradle-plugin", version.ref = "atomicfu" }
-
 [plugins]
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "jetbrainsCompose" }
 androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 androidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-atomicfu = { id = "kotlinx-atomicfu" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
