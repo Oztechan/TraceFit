@@ -1,7 +1,7 @@
 [versions]
 kotlin = "1.9.22"
 detekt = "1.23.6"
-kover = "0.6.1"
+kover = "0.7.6"
 compose = "1.6.3"
 jetbrainsCompose = "1.5.12"
 composeCompiler = "1.5.10"
