@@ -17,7 +17,7 @@ env:
 jobs:
 
   GradleBuild:
-    runs-on: macos-13
+    runs-on: macos-14
     outputs:
       status: ${{ steps.status.outputs.status }}
     steps:
@@ -37,7 +37,7 @@ jobs:
         run: echo "status=success" >> $GITHUB_OUTPUT
 
   Quality:
-    runs-on: macos-13
+    runs-on: macos-14
     outputs:
       status: ${{ steps.status.outputs.status }}
     steps:
