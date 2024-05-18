@@ -46,7 +46,5 @@ android {
             sourceCompatibility = JAVA_VERSION
             targetCompatibility = JAVA_VERSION
         }
-
-        sourceSets["main"].resources.srcDirs("src/commonMain/resources")
     }
 }

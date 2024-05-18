@@ -14,9 +14,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
+import tracefit.client.generated.resources.Res
+import tracefit.client.generated.resources.compose_multiplatform
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
@@ -33,7 +34,7 @@ fun MainView() {
             }
             AnimatedVisibility(showImage) {
                 Image(
-                    painterResource(DrawableResource("compose-multiplatform")),
+                    painterResource(Res.drawable.compose_multiplatform),
                     null
                 )
             }
