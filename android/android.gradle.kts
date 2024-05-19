@@ -2,6 +2,7 @@ plugins {
     libs.plugins.apply {
         alias(androidApplication)
         alias(kotlinAndroid)
+        alias(jetbrainsCompose)
     }
 }
 
@@ -34,11 +35,12 @@ android {
 dependencies {
     implementation(project(":client"))
 
+    compose.apply {
+        implementation(ui)
+        implementation(preview)
+        debugImplementation(uiTooling)
+    }
     libs.android.apply {
-        implementation(composeUi)
-        implementation(composeUiToolingPreview)
         implementation(activityCompose)
-
-        debugImplementation(composeUiTooling)
     }
 }
