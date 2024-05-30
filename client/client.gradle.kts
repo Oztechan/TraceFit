@@ -5,6 +5,7 @@ plugins {
         alias(kotlinMultiplatform)
         alias(jetbrainsCompose)
         alias(androidLibrary)
+        alias(kotlinPluginCompose)
     }
 }
 
