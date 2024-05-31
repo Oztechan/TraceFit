@@ -1,16 +1,14 @@
 [versions]
-kotlin = "1.9.24"
+kotlin = "2.0.0"
 detekt = "1.23.6"
 kover = "0.6.1"
 jetbrainsCompose = "1.6.10"
-composeCompiler = "1.5.14"
 androidGradlePlugin = "8.4.1"
 activityCompose = "1.9.0"
 
 [libraries]
 # COMMON
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-common-ComposeCompiler = { module = "androidx.compose.compiler:compiler", version.ref = "composeCompiler" } # Workaround for compose compiler update
 common-detektFormatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 
 # ANDROID
@@ -18,6 +16,7 @@ android-activityCompose = { module = "androidx.activity:activity-compose", versi
 
 [plugins]
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "jetbrainsCompose" }
+kotlinPluginCompose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 androidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
