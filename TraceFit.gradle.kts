@@ -26,25 +26,24 @@ allprojects {
             buildUponDefaultConfig = true
             allRules = true
             parallel = true
-            config.from("${rootProject.projectDir}/detekt.yml")
+            config.from(rootProject.layout.projectDirectory.file("detekt.yml"))
         }
-        tasks.withType<Detekt> {
-            setSource(files(project.projectDir))
+
+        tasks.withType<io.gitlab.arturbosch.detekt.Detekt> {
+            // Use providers to avoid direct project references
+            val projectDirectory = layout.projectDirectory.asFile
+            val buildDirectory = layout.buildDirectory.asFile
+
+            setSource(projectDirectory)
             exclude("**/build/**")
             exclude {
-                it.file.relativeTo(projectDir).startsWith(
-                    project.layout.buildDirectory.asFile.get().relativeTo(projectDir)
-                )
-            }
-        }.onEach { detekt ->
-            // skip detekt tasks unless a it is specifically called
-            detekt.onlyIf {
-                gradle.startParameter.taskNames.any { it.contains("detekt") }
+                val relativePath = it.file.relativeTo(projectDirectory)
+                relativePath.startsWith(buildDirectory.get().relativeTo(projectDirectory))
             }
         }
 
         tasks.register("detektAll") {
-            dependsOn(tasks.withType<Detekt>())
+            dependsOn(tasks.withType<io.gitlab.arturbosch.detekt.Detekt>())
         }
 
         dependencies {
