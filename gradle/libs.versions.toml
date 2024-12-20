@@ -1,8 +1,8 @@
 [versions]
 kotlin = "2.1.0"
 detekt = "1.23.7"
-kover = "0.8.3"
-jetbrainsCompose = "1.7.1"
+kover = "0.9.0"
+jetbrainsCompose = "1.7.3"
 androidGradlePlugin = "8.7.3"
 activityCompose = "1.9.3"
 
