@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.1.10"
-detekt = "1.23.7"
+detekt = "1.23.8"
 kover = "0.9.1"
 jetbrainsCompose = "1.7.3"
 androidGradlePlugin = "8.8.0"
