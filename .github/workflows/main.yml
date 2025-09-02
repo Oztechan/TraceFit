@@ -23,7 +23,7 @@ jobs:
     steps:
 
       - name: Setup Gradle Repo
-        uses: Oztechan/Global/actions/setup-gradle-repo@d479ff996a9c42b89bf102056a850f2f4b0056f8
+        uses: Oztechan/Global/actions/setup-gradle-repo@6d550be1a6bb4ddab3495be9e3b1ec72ee764993
 
       - name: Assemble
         run: ./gradlew assemble
@@ -43,7 +43,7 @@ jobs:
     steps:
 
       - name: Setup Gradle Repo
-        uses: Oztechan/Global/actions/setup-gradle-repo@d479ff996a9c42b89bf102056a850f2f4b0056f8
+        uses: Oztechan/Global/actions/setup-gradle-repo@6d550be1a6bb4ddab3495be9e3b1ec72ee764993
 
       - name: Run Quality Jobs
         run: ./gradlew check koverXmlReport --parallel
