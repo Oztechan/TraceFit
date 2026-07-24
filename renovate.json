@@ -19,10 +19,11 @@
     "enabled": true,
     "commitMessageAction": "[Oztechan/TraceFit#11] Lock file maintenance"
   },
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": [
-        "^ios/TraceFit\\.xcodeproj/project\\.pbxproj$"
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^ios/TraceFit\\.xcodeproj/project\\.pbxproj$/"
       ],
       "matchStrings": [
         "repositoryURL = \"https://github.com/(?<depName>[^/]+/[^\"/]+?)(?:\\.git)?\";\\s*requirement = \\{\\s*kind = exactVersion;\\s*version = (?<currentValue>[^;]+);"
