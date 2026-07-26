@@ -1,7 +1,6 @@
 plugins {
     libs.plugins.apply {
         alias(androidApplication)
-        alias(kotlinAndroid)
         alias(jetbrainsCompose)
         alias(kotlinPluginCompose)
     }
