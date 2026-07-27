@@ -5,8 +5,7 @@ plugins {
         alias(jetbrainsCompose).apply(false)
         alias(androidApplication).apply(false)
         alias(kotlinMultiplatform).apply(false)
-        alias(kotlinAndroid).apply(false)
-        alias(androidLibrary).apply(false)
+        alias(androidKotlinMultiplatformLibrary).apply(false)
         alias(kover)
         alias(detekt)
     }

@@ -4,13 +4,27 @@ plugins {
     libs.plugins.apply {
         alias(kotlinMultiplatform)
         alias(jetbrainsCompose)
-        alias(androidLibrary)
+        alias(androidKotlinMultiplatformLibrary)
         alias(kotlinPluginCompose)
     }
 }
 
 kotlin {
-    androidTarget()
+    android {
+        ProjectSettings.apply {
+            namespace = "$PROJECT_ID.client"
+            compileSdk = COMPILE_SDK_VERSION
+            minSdk = MIN_SDK_VERSION
+
+            compilations.configureEach {
+                compileTaskProvider.configure {
+                    compilerOptions {
+                        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget(JAVA_VERSION.toString()))
+                    }
+                }
+            }
+        }
+    }
 
     listOf(
         iosX64(),
@@ -23,29 +37,13 @@ kotlin {
         }
     }
 
-    @Suppress("UnusedPrivateProperty")
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material)
-                @OptIn(ExperimentalComposeLibrary::class)
-                implementation(compose.components.resources)
-            }
-        }
-    }
-}
-
-android {
-    ProjectSettings.apply {
-        namespace = "$PROJECT_ID.client"
-        compileSdk = COMPILE_SDK_VERSION
-        defaultConfig.minSdk = MIN_SDK_VERSION
-
-        compileOptions {
-            sourceCompatibility = JAVA_VERSION
-            targetCompatibility = JAVA_VERSION
+        commonMain.dependencies {
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material)
+            @OptIn(ExperimentalComposeLibrary::class)
+            implementation(compose.components.resources)
         }
     }
 }

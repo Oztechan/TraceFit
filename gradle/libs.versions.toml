@@ -2,8 +2,8 @@
 kotlin = "2.2.21"
 detekt = "1.23.8"
 kover = "0.9.9"
-jetbrainsCompose = "1.9.0"
-androidGradlePlugin = "8.13.2"
+jetbrainsCompose = "1.9.3"
+androidGradlePlugin = "9.3.1"
 activityCompose = "1.10.1"
 
 [libraries]
@@ -18,8 +18,7 @@ android-activityCompose = { module = "androidx.activity:activity-compose", versi
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "jetbrainsCompose" }
 kotlinPluginCompose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
-androidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+androidKotlinMultiplatformLibrary = { id = "com.android.kotlin.multiplatform.library", version.ref = "androidGradlePlugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
