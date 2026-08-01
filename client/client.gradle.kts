@@ -1,5 +1,3 @@
-import org.jetbrains.compose.ExperimentalComposeLibrary
-
 plugins {
     libs.plugins.apply {
         alias(kotlinMultiplatform)
@@ -39,11 +37,12 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            @OptIn(ExperimentalComposeLibrary::class)
-            implementation(compose.components.resources)
+            libs.compose.apply {
+                implementation(runtime)
+                implementation(foundation)
+                implementation(material)
+                implementation(componentsResources)
+            }
         }
     }
 }
