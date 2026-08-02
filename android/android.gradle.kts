@@ -32,9 +32,9 @@ android {
 dependencies {
     implementation(project(":client"))
 
-    compose.apply {
+    libs.compose.apply {
         implementation(ui)
-        implementation(preview)
+        implementation(uiToolingPreview)
         debugImplementation(uiTooling)
     }
     libs.android.apply {
