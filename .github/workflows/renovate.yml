@@ -1,0 +1,13 @@
+name: Renovate Auto Approve
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  RenovateAutoApprove:
+    uses: Oztechan/Global/.github/workflows/reusable-renovate-approve.yml@18fc0629166fe375fa58931efcd330328441875b
+    secrets: inherit
