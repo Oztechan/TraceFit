@@ -3,7 +3,7 @@ kotlin = "2.4.21"
 detekt = "1.23.8"
 kover = "0.9.11"
 jetbrainsCompose = "1.12.2"
-androidGradlePlugin = "9.4.1"
+androidGradlePlugin = "9.5.0"
 activityCompose = "1.13.0"
 
 [libraries]
